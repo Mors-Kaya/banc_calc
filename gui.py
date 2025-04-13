@@ -23,7 +23,7 @@ class DepositApp:
         self.rate_entry = tk.Entry(root)
         self.rate_entry.grid(row=2, column=1)
 
-        tk.Label(root, text="Срок (в годах):").grid(row=3, column=0)
+        tk.Label(root, text="Срок (в месяцах):").grid(row=3, column=0)
         self.time_entry = tk.Entry(root)
         self.time_entry.grid(row=3, column=1)
 
