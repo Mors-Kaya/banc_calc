@@ -1,9 +1,9 @@
 # deposit.py
 class Deposit:
-    def __init__(self, principal=1000.0, rate=5.0, time=1):
+    def __init__(self, principal=1000.0, rate=5.0, time=12):  # time в месяцах
         self._principal = principal  # начальная сумма вклада
         self._rate = rate / 100  # процентная ставка
-        self._time = time  # время в годах
+        self._time = time  # время в месяцах
 
     @property
     def principal(self):
@@ -43,12 +43,12 @@ class Deposit:
 
 class SimpleDeposit(Deposit):
     def calculate_profit(self):
-        return self.principal * self._rate * self.time
+        return self.principal * (self._rate / 12) * self.time  # делим на 12 для месячной ставки
 
 
 class CapitalizedDeposit(Deposit):
     def calculate_profit(self):
-        return self.principal * ((1 + self._rate) ** self.time - 1)
+        return self.principal * ((1 + (self._rate / 12)) ** self.time - 1)  # делим на 12 для месячной ставки
 
 
 class Bank:
